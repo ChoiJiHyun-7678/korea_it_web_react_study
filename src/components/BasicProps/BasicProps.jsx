@@ -1,6 +1,6 @@
-import Props1 from "./Props1/Props1";
-import Props2 from "./Props2/Props2";
-import Props3 from "./Props3/Props3";
+import Props1 from "./Props1/Props1"
+import Props2 from "./Props2/Props2"
+import Props3 from "./Props3/Props3"
 
 function BasicProps() {
   return (
