@@ -5,6 +5,8 @@ import BasicReact from "./components/BasicReact/BasicReact";
 import Calculator from "./components/BasicState/Calculator/Calculator";
 import CountState from "./components/BasicState/CountState/CountState";
 import DomRef from "./components/DomRef/DomRef";
+import FruitsFilter from "./components/FruitsFilter/FruitsFilter";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
   return (
@@ -14,8 +16,8 @@ function App() {
       {/* <BasicProps /> */}
     
       {/* <Calculator /> */}
-      <DomRef/>
-    </>
+      <UserProfile/>
+          </>
   );
 }
 
