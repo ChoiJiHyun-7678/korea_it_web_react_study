@@ -1,13 +1,13 @@
-import React from 'react'
 /** @jsxImportSource @emotion/react */
-import * as s from "./style";
+import * as s from "./styles";
+
 function Emotion2() {
   return (
     <div>
-        <div></div>
-        <div></div>
+      <div css={s.box1}></div>
+      <div css={s.box2("gray")}></div>
     </div>
-  )
+  );
 }
 
-export default Emotion2
+export default Emotion2;
