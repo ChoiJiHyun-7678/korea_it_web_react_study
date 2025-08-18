@@ -6,7 +6,7 @@ export const layout = css`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color:rgb(0, 174, 255);
+  background-color: #fafafa;
 `;
 
 export const container = css`
@@ -14,9 +14,12 @@ export const container = css`
   flex-direction: column;
   width: 400px;
   height: 600px;
-  border: 9px solid rgb(0, 46, 114);
+  border: 1px solid #dbdbdb;
   box-sizing: border-box;
   background-color: white;
   border-radius: 8px;
   padding: 20px;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.5);
 `;

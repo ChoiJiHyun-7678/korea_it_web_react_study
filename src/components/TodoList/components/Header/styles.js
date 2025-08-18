@@ -30,7 +30,7 @@ export const searchButton = css`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: #dbdbdb;
+    background-color:rgb(170, 132, 7);
   }
 `;
 

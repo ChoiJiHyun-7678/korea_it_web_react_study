@@ -2,7 +2,10 @@
 import { IoSearch } from "react-icons/io5";
 import * as s from "./styles";
 
-function Header() {
+function Header([filter, setFilter, setSearchText]) {
+  
+
+
   return (
     <>
       <div css={s.container}>
