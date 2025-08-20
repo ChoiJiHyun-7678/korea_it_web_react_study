@@ -1,14 +1,14 @@
-import { Children } from "react"
-import Header from "../Header/Header"
+/** @jsxImportSource @emotion/react */
+import Header from "../Header/Header";
+import * as s from "./styles";
 
-inport * as s from "./style"
-function layout({Children}) {
+function Layout({ children }) {
   return (
-    <div>
-      <Header/>
-      {Children}
+    <div css={s.layout}>
+      <Header />
+      <div css={s.mainContainer}>{children}</div>
     </div>
-  )
+  );
 }
 
-export default layout
+export default Layout;
