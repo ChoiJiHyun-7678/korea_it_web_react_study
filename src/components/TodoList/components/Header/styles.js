@@ -21,6 +21,10 @@ export const searchButton = css`
   display: flex;
   justify-content: center;
   align-items: center;
+
+
+
+  
   font-size: 18px;
   padding: 5px 12px;
   border-radius: 8px;
