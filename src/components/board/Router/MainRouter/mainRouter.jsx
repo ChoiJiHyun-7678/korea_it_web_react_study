@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../../Pages/Home/Home";
 import Write from "../../Pages/write/write";
-import Board from "../../Pages/board/board";
+import board from "../../Pages/Board/board";
 import AuthRouter from "../AuthRouter/AuthRouter";
 
 function MainRouter() {

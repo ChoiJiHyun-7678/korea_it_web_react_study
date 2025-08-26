@@ -1,26 +1,5 @@
 import { css } from "@emotion/react";
 
-export const container = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-`;
-
-export const box = css`
-  width: 360px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-export const inputBox = css`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`;
-
 export const btnBox = css`
   display: flex;
   justify-content: center;
@@ -44,17 +23,6 @@ export const btnBox = css`
 
     &:hover {
       background-color: #105bcc;
-    }
-  }
-`;
-
-export const errorBox = css`
-  padding-left: 20px;
-  & > ul {
-    list-style: disc;
-    & > li {
-      color: #dc3545;
-      font-size: 13px;
     }
   }
 `;

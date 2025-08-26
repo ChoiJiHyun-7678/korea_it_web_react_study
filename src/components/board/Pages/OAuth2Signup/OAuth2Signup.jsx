@@ -1,16 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import * as s from "./styles";
-import AuthInput from "../../components/AuthInput/AuthInput";
 import { useEffect, useState } from "react";
-import { signupRequest } from "../../apis/auth/authApis";
-import { useNavigate } from "react-router-dom";
+import AuthInput from "../../components/AuthInput/AuthInput";
+import * as s from "./styles";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { oauth2SignupRequest } from "../../apis/auth/authApis";
 
-function Signup() {
+function OAuth2Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState({});
+  const [searchParam] = useSearchParams();
   const navigate = useNavigate();
 
   const signupOnClickHandler = () => {
@@ -30,10 +31,12 @@ function Signup() {
     }
 
     //회원가입 요청 API
-    signupRequest({
+    oauth2SignupRequest({
       username: username,
       password: password,
       email: email,
+      provider: searchParam.get("provider"),
+      providerUserId: searchParam.get("providerUserId"),
     })
       .then((response) => {
         console.log(response.data);
@@ -62,15 +65,12 @@ function Signup() {
       }
     }
 
-    if (email.length > 0) {
-      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-      if (!emailRegex.test(email)) {
-        newErrorMessage.email = "이메일 형식에 맞게 입력해주세요.";
-      }
-    }
-
     setErrorMessage(newErrorMessage);
-  }, [password, email]);
+  }, [password]);
+
+  useEffect(() => {
+    setEmail(searchParam.get("email"));
+  }, [searchParam]);
 
   return (
     <div css={s.container}>
@@ -100,13 +100,13 @@ function Signup() {
             placeholder={"이메일"}
             state={email}
             setState={setEmail}
+            disabled={true}
           />
         </div>
         <div css={s.errorBox}>
           {Object.keys(errorMessage).length !== 0 ? (
             <ul>
               <li>{errorMessage.password}</li>
-              <li>{errorMessage.email}</li>
             </ul>
           ) : (
             <></>
@@ -120,4 +120,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default OAuth2Signup;

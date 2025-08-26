@@ -10,6 +10,11 @@ function Header() {
   const principalData = queryClient.getQueryData(["getPrincipal"]);
 
   const onClickNavHandler = (path) => {
+    navigate(path)
+  }
+
+
+  const onClickNavHandler = (path) => {
     navigate(path);
   };
 
@@ -29,10 +34,10 @@ function Header() {
       <div>
         {principalData ? (
           <ul>
-            <li css="{s.headerIcon}">
+            <li css={s.headerIcon}>
               <IoMdPerson />
             </li>
-            <li css="{s.headerIcon}">
+            <li css={s.headerIcon}>
               <LuLogIut />
             </li>
           </ul>
