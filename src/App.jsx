@@ -1,14 +1,20 @@
 import { BrowserRouter } from "react-router-dom";
-import mainRouter from "./router/MainRouter/mainRouter";
+import Layout from "./components/Layout/Layout";
+import MainRouter from "./router/MainRouter/MainRouter";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Layout>
-        <MainRouter />
-      </Layout>
-    </BrowserRouter>
-  );
+	return (
+		<QueryClientProvider client={queryClient}>
+			<BrowserRouter>
+				<Layout>
+					<MainRouter />
+				</Layout>
+			</BrowserRouter>
+		</QueryClientProvider>
+	);
 }
 
 export default App;

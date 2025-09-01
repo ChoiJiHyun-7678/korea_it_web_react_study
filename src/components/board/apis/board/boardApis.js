@@ -1,6 +1,6 @@
 import { instance } from "../utils/instance";
 
-export const getPrincipalRequest = async () => {
+export const addBoardRequest = async (data) => {
 	instance.interceptors.request.use((config) => {
 		const accessToken = localStorage.getItem("accessToken");
 
@@ -12,43 +12,43 @@ export const getPrincipalRequest = async () => {
 	});
 
 	try {
-		const response = await instance.get("/auth/principal");
+		const response = await instance.post("/board/add", data);
 		return response;
 	} catch (error) {
 		return error.response;
 	}
 };
 
-export const signupRequest = async (data) => {
+export const getBoardList = async () => {
 	try {
-		const response = await instance.post("/auth/signup", data);
+		const response = await instance.get("/board/list");
 		return response;
 	} catch (error) {
 		return error.response;
 	}
 };
 
-export const signinRequest = async (data) => {
+export const getBoardDetail = async (boardId) => {
 	try {
-		const response = await instance.post("/auth/signin", data);
+		const response = await instance.get(`/board/${boardId}`);
 		return response;
 	} catch (error) {
 		return error.response;
 	}
 };
 
-export const oauth2SignupRequest = async (data) => {
+export const removeBoard = async (boardId) => {
 	try {
-		const response = await instance.post("/oauth2/signup", data);
+		const response = await instance.post(`/board/remove/${boardId}`);
 		return response;
 	} catch (error) {
 		return error.response;
 	}
 };
 
-export const oauth2MergeRequest = async (data) => {
+export const updateBoardRequest = async (data) => {
 	try {
-		const response = await instance.post("/oauth2/merge", data);
+		const response = await instance.post("/board/update", data);
 		return response;
 	} catch (error) {
 		return error.response;

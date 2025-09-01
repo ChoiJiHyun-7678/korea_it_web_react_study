@@ -1,20 +1,62 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../../Pages/Home/Home";
-import Write from "../../Pages/write/write";
-import board from "../../Pages/Board/board";
+import Home from "../../pages/Home/Home";
+import Write from "../../pages/Write/Write";
+import Board from "../../Pages/Board/board";
 import AuthRouter from "../AuthRouter/AuthRouter";
+import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
+import BoardDetail from "../../Pages/BoardDetail/BoardDetail";
+import Update from "../../Pages/Update/update";
+import AccountRouter from "../AccountRouter/accountRouter";
 
 function MainRouter() {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/board" element={<Board />} />
-        <Route path="/write" element={<Write />} />
-        <Route path="/auth/*" element={<AuthRouter />} />
-      </Routes>
-    </>
-  );
+	return (
+		<>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route
+					path="/board"
+					element={
+						<ProtectedRoute>
+							<Board />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/write"
+					element={
+						<ProtectedRoute>
+							<Write />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/board/:boardId"
+					element={
+						<ProtectedRoute>
+							<BoardDetail />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/board/update/:boardId"
+					element={
+						<ProtectedRoute>
+							<Update />
+						</ProtectedRoute>
+					}
+				/>
+				<Route path="/auth/*" element={<AuthRouter />} />
+				<Route
+					path="/account/*"
+					element={
+						<ProtectedRoute>
+							<AccountRouter />
+						</ProtectedRoute>
+					}
+				/>
+			</Routes>
+		</>
+	);
 }
 
 export default MainRouter;
