@@ -9,6 +9,12 @@ export const container = css`
 	box-sizing: border-box;
 `;
 
+export const inputBox = css`
+	display : flex;
+	
+
+`
+
 export const listContainer = css`
 	width: 100%;
 	height: 750px;
